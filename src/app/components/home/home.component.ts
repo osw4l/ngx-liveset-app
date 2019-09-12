@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   liveOn = false;
-  constructor() { }
+  videos = [];
+  songs = [];
+  constructor(public api: ApiService) { }
 
   ngOnInit() {
+    this.getSongs();
+    this.getVideos();
+  }
+
+  getVideos() {
+    this.api.getVideos().subscribe(
+      videos => {
+        this.videos = videos;
+      });
+  }
+
+  getSongs() {
+    this.api.getSongs().subscribe(
+      songs => {
+        this.songs = songs;
+      });
   }
 
   goToLive() {
