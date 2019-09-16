@@ -7,6 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LiveComponent } from './components/live/live.component';
 import {ApiService} from './services/api.service';
 import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatVideoModule } from 'mat-video';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatVideoModule,
   ],
   providers: [
     ApiService

@@ -7,7 +7,7 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
-  public RESOURCES = `${environment.domain}`;
+  public RESOURCES = `${environment.domain}/api`;
   public SONGS_URL = `${this.RESOURCES}/songs`;
   public VIDEOS_URL = `${this.RESOURCES}/videos`;
 

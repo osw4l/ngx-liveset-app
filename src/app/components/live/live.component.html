@@ -1,4 +1,12 @@
-<video controls (click)="startVideo()" #videoPlayer width="100%" height="auto">
-  <source src="{{ videoSource }}" type="video/mp4"/>
-  Browser not supported
-</video>
+<mat-video #video
+           [loop]="loop"
+           (click)="startVideo($event)"
+           [autoplay]="autoplay"
+           [preload]="true"
+           [fullscreen]="true"
+           controls
+           [download]="false"
+           color="accent"
+           spinner="spin">
+  <source matVideoSource [src]="videoSource" type="video/mp4">
+</mat-video>

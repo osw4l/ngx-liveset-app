@@ -40,33 +40,23 @@
       <div class="card">
         <div class="card-header bg-info">
           <h4 class="text-white">
-            Playlist
+            Videos
           </h4>
         </div>
         <div class="card-body">
-          <ul class="list-group">
-            <li class="list-group-item list-group-item-action">
-              Nominados categoria x
-              <i class="fa fa-play float-right mt-1"></i>
-            </li>
-            <li class="list-group-item list-group-item-action">
-              Nominados categoria x
-              <i class="fa fa-play float-right mt-1"></i>
-            </li>
-            <li class="list-group-item list-group-item-action">
-              Nominados categoria x
-              <i class="fa fa-play float-right mt-1"></i>
-            </li>
-            <li class="list-group-item list-group-item-action">
-              Nominados categoria x
-              <i class="fa fa-play float-right mt-1"></i>
-            </li>
-            <li class="list-group-item list-group-item-action">
-              Nominados categoria x
-              <i class="fa fa-play float-right mt-1"></i>
-            </li>
-
-          </ul>
+          <div *ngIf="!liveOn; else playList">
+            <h3 class="text-center">
+              Please turn on the live mode to see the playlist
+            </h3>
+          </div>
+          <ng-template #playList>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-action" [class.active]="video.active" *ngFor="let video of videos; index as index" (click)="play(video.id, video.file, index)" >
+                {{ video.name }}
+                <i class="fa fa-play float-right mt-1" [class.text-success]="video.active"></i>
+              </li>
+            </ul>
+          </ng-template>
         </div>
       </div>
     </div>
